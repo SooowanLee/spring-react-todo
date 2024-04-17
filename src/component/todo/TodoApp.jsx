@@ -10,6 +10,7 @@ export default function TodoApp() {
           <Route path="/" element={<LoginComponent />}></Route>
           <Route path="/login" element={<LoginComponent />}></Route>
           <Route path="/welcome" element={<WelcomeComponent />}></Route>
+          <Route path="*" element={<ErrorComponent />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
@@ -46,6 +47,7 @@ function LoginComponent() {
 
   return (
     <div className="Login">
+      <h1>Login Page</h1>
       {showSuccessMessage && (
         <div className="successMessage">Authenticated Successfully</div>
       )}
@@ -84,5 +86,19 @@ function LoginComponent() {
 }
 
 function WelcomeComponent() {
-  return <div className="Welcome">Welcome Component</div>;
+  return (
+    <div className="Welcome">
+      <h1>Welcome WelcomePage</h1>
+      <div>Welcome Component</div>
+    </div>
+  );
+}
+
+function ErrorComponent() {
+  return (
+    <div className="ErrorComponent">
+      <h1>404 에러 페이지입니다.</h1>
+      <div>죄송합니다. 최대한 빠르게 고칠게요.</div>
+    </div>
+  );
 }

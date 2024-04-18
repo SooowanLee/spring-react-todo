@@ -174,10 +174,10 @@ function ListTodosComponent() {
     },
   ];
   return (
-    <div className="ListTodosComponent">
+    <div className="container">
       <h1>할 일을 적어주세요!</h1>
       <div>
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <td>Id</td>

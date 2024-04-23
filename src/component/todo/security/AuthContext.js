@@ -11,8 +11,20 @@ export default function AuthProvider({ children }) {
 
   //   setInterval(() => setNumber(number + 1), 10000);
 
+  function login(username, password) {
+    if (username === "testName" && password === "test") {
+      setAuthenticated(true);
+      return true;
+    } else {
+      setAuthenticated(false);
+      return false;
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ number, isAuthenticated, setAuthenticated }}>
+    <AuthContext.Provider
+      value={{ number, isAuthenticated, setAuthenticated, login }}
+    >
       {children}
     </AuthContext.Provider>
   );

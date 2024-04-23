@@ -1,15 +1,13 @@
 import { createContext, useContext, useState } from "react";
 
-// 컨텍스트를 생성
+// 1. 컨텍스트를 생성
 export const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
+//2. 다른 컴포넌트와 컨텍스트를 공유
 export default function AuthProvider({ children }) {
-  const [number, setNumber] = useState(10);
-
+  //3. 컨텍스트에 State 넣기
   const [isAuthenticated, setAuthenticated] = useState(false);
-
-  //   setInterval(() => setNumber(number + 1), 10000);
 
   function login(username, password) {
     if (username === "testName" && password === "test") {
@@ -21,10 +19,12 @@ export default function AuthProvider({ children }) {
     }
   }
 
+  function logout() {
+    setAuthenticated(false);
+  }
+
   return (
-    <AuthContext.Provider
-      value={{ number, isAuthenticated, setAuthenticated, login }}
-    >
+    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

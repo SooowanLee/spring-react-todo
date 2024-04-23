@@ -20,16 +20,9 @@ function LoginComponent() {
   }
 
   function handleSubmit() {
-    if (username === "testName" && password === "test") {
-      authContext.setAuthenticated(true);
-      console.log("Success");
-      setShowSuccessMessage(true);
-      setShowErrorMessage(false);
+    if (authContext.login(username, password)) {
       navigate(`/welcome/${username}`);
     } else {
-      authContext.setAuthenticated(false);
-      console.log("Faild");
-      setShowSuccessMessage(false);
       setShowErrorMessage(true);
     }
   }

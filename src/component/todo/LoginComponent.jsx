@@ -5,7 +5,6 @@ import { useAuth } from "./security/AuthContext";
 function LoginComponent() {
   const [username, setUsername] = useState("testName");
   const [password, setPassword] = useState();
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const navigate = useNavigate();
 
@@ -30,9 +29,6 @@ function LoginComponent() {
   return (
     <div className="Login">
       <h1>Login Page</h1>
-      {showSuccessMessage && (
-        <div className="successMessage">Authenticated Successfully</div>
-      )}
       {showErrorMessage && (
         <div className="errorMessage">
           Authentication Failed. Please check your credentials.

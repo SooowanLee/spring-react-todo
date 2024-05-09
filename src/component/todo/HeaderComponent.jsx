@@ -21,7 +21,7 @@ function HeaderComponent() {
               <ul className="navbar-nav">
                 <li className="nav-item fs-5">
                   {isAuthenticated && (
-                    <Link className="nav-link" to="/welcome/test">
+                    <Link className="nav-link" to="/welcome/tester1">
                       Home
                     </Link>
                   )}
